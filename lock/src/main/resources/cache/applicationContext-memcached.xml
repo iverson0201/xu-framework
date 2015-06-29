@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+	   default-lazy-init="true">
+
+	<context:property-placeholder ignore-unresolvable="true"
+								  location="classpath*:/config.properties" />
+
+	<!-- 扫描指定包（将 @Component 注解的类自动定义为 Spring Bean） -->
+	<context:component-scan base-package="memcached.cache"/>
+
+	<!-- SpyMemcached客户端 -->
+	<bean id="spyMemcachedClient" class="memcached.cache.SpyMemcachedClient">
+		<property name="memcachedClient">
+			<bean class="net.spy.memcached.spring.MemcachedClientFactoryBean">
+				<property name="servers" value="${memcached.url}" />
+				<!-- 默认是TEXT -->
+				<property name="protocol" value="TEXT" />
+				<!-- 默认是ARRAY_MOD -->
+				<property name="locatorType" value="CONSISTENT" />
+				<!-- 默认是2500毫秒 -->
+				<property name="opTimeout" value="1000" />
+			</bean>
+		</property>
+		<property name="updateTimeout" value="1000"/>
+		<property name="shutdownTimeout" value="1000"/>
+	</bean>
+
+
+</beans>
