@@ -5,7 +5,7 @@ package Algorithms.args4;
  */
 public class StringHandle {
     /**
-     * åˆ¤æ–­å­—ç¬¦ä¸²æ˜¯å¦æ˜¯ä¸€æ¡å›æ–‡
+     * ÅĞ¶Ï×Ö·û´®ÊÇ·ñÊÇÒ»Ìõ»ØÎÄ
      * @param s
      * @return
      */
@@ -20,7 +20,7 @@ public class StringHandle {
     }
 
     /**
-     * æå–æ–‡ä»¶åå’Œæ‰©å±•å
+     * ÌáÈ¡ÎÄ¼şÃûºÍÀ©Õ¹Ãû
      */
     private static void extract() {
         String s = "aa.jpg";
@@ -31,7 +31,7 @@ public class StringHandle {
     }
 
     /**
-     * æ•°ç»„æ˜¯å¦æŒ‰ç…§å­—æ¯è¡¨æ’åº
+     * Êı×éÊÇ·ñ°´ÕÕ×ÖÄ¸±íÅÅĞò
      * @param a
      * @return
      */
@@ -46,7 +46,7 @@ public class StringHandle {
 
     public static int gcd(int p,int q){
         if (q == 0){
-            return p;
+            return 0;
         }
         int r = p % q;
         return gcd(q,r);
@@ -56,7 +56,7 @@ public class StringHandle {
         //String a[] = {"a","b","c","f","e"};
         //System.out.println(isSorted(a));
 
-        System.out.println(gcd(8,3));
+        System.out.println(gcd(7,3));
 
     }
 
